@@ -16,7 +16,7 @@ https://replicate.com/account
 
     3.1 Realizar una solicitud POST a la siguiente direccion http://127.0.0.1:5000/eliminar_fondo
 
-     3.2 Ir al apartado body -> row y agregar el url del video que deseas convertir, ejemplo:
+     3.2 Ir al apartado Body -> raw y agregar el url del video que deseas convertir, ejemplo:
 
         {
           "url": "https://i.pinimg.com/originals/32/79/46/3279462667fb3498a6aa144e7cdea2ae.gif"
