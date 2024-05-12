@@ -1,7 +1,8 @@
 # RemovIA_back
 
 Crear un archivo .env y agregar la siguiente linea de codigo 
-REPLICATE_API_TOKEN = {your api key}
+    
+    REPLICATE_API_TOKEN = {your api key}
 
 Deberan iniciar sesion en replicate para poder obtenerla, ya con esa configuracion previa podrás probarla nuestra api localmente
 https://replicate.com/account
