@@ -7,7 +7,7 @@ Crear un archivo .env y agregar la siguiente linea de codigo
 Deberan iniciar sesion en replicate para poder obtenerla, ya con esa configuracion previa podrás probarla nuestra api localmente
 https://replicate.com/account
 
-## Pasos para probar la api RemovAI  
+## Pasos para probar la api RemovIA 
 
 1. Ejecutar la api usando el comando python RemovIA.py 
 
