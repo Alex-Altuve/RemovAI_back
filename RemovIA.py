@@ -1,10 +1,19 @@
 from flask import Flask, request, jsonify
+from flask_swagger_ui import get_swaggerui_blueprint
+
 import Replicate_api as modelo
 
 app = Flask(__name__)
+SWAGGER_URL = "/swagger"
+API_URL = "/static/swagger.json"
+
+swagger_ui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL, API_URL, config={"app_name": "RemovIA"}
+)
+app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 
-@app.route("/eliminar_fondo", methods=["POST"])
+@app.route("/eliminar-fondo", methods=["POST"])
 def remove_background_ai():
     """
     function to remove the background of a video from URL
