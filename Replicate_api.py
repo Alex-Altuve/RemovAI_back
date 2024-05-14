@@ -2,6 +2,8 @@ import replicate
 from dotenv import load_dotenv
 load_dotenv()
 
+
+
 def remove_background(url):
     input = {
         "video": url
@@ -14,6 +16,9 @@ def remove_background(url):
 
     return output
 
+#Aqui tiene el ejemplo de un gif local, no es un URl 
+# video= open("Loco.gif", "rb")
+
 # url = "https://i.pinimg.com/originals/32/79/46/3279462667fb3498a6aa144e7cdea2ae.gif"
-# output_url = remove_background(url)
+# output_url = remove_background(video)
 # print(output_url)
