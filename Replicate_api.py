@@ -4,15 +4,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def remove_background(url):
+def remove_background(video):
     """
     function to connect to deployed model
     """
-    input_url = {"video": url}
+    input_video = {"video": video}
 
     output = replicate.run(
         "nateraw/video-background-remover:ac5c138171b04413a69222c304f67c135e259d46089fc70ef12da685b3c604aa",
-        input=input_url,
+        input=input_video,
     )
 
     return output
