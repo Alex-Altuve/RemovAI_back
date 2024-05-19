@@ -1,9 +1,15 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
+
+# from OpenSSL import SSL
 
 import Replicate_api as modelo
 
 app = Flask(__name__)
+CORS(app)
+
+# Swagger configuration
 SWAGGER_URL = "/swagger"
 API_URL = "/static/swagger.json"
 
@@ -20,7 +26,8 @@ def remove_background_ai():
     """
     try:
         data = request.json
-        url = data.get("url")
+        print(data)
+        url = data.get("input")
         if not url:
             return jsonify({"error": "URL missing in request body"}), 400
 
