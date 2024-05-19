@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_swagger_ui import get_swaggerui_blueprint
 from werkzeug.utils import secure_filename
 
@@ -35,6 +35,7 @@ def allowed_file(filename):
 
 
 @app.route("/eliminar-fondo", methods=["POST"])
+@cross_origin()
 def remove_background_ai():
     """
     function to remove the background of a video from URL
@@ -53,18 +54,23 @@ def remove_background_ai():
 
 
 @app.route("/delete-background", methods=["POST"])
+@cross_origin()
 def remove_background_url_or_video_ai():
     """
     function to remove the background of a video from URL
     """
     try:
+        print("Request data", request.data)
+        print("Request files", request.files)
         # variable for the result
         video = {}
         # verify if the user submitted a file or a URL
         if "video" in request.files:
+            print(request.files)
             file = request.files["file"]
             # if the user uploaded a empty file without a name
             if file.filename == "":
+                print("No file selected")
                 return jsonify({"error": "No file selected"}), 400
             # if the file is not empty and is allowed
             if file and allowed_file(file.filename):
@@ -76,13 +82,15 @@ def remove_background_url_or_video_ai():
         else:
             # if no file exists then verify the URL
             data = request.json
-            video = data.get("url")
+            print("Data in request", data)
+            video = data.get("input")
             if not video:
+                print("No url data in request", data)
                 return jsonify({"error": "URL missing in request body"}), 400
         # call the model
         output = modelo.remove_background(video=video)
         # return the result
-        return jsonify(output)
+        return jsonify({"output_url": output})
     except Exception as e:
         return jsonify({"error": str(e)})
 
