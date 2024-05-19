@@ -7,23 +7,23 @@
 	"paths": {
 		"/eliminar-fondo": {
 			"post": {
-				"description": "Eliminates background on video",
+				"description": "Eliminates background on video, the input can be a local video or a URL to a video",
 				"consumes": ["application/json"],
 				"produces": ["application/json"],
 				"parameters": [
 					{
-						"name": "access data",
+						"name": "input",
 						"in": "body",
-						"description": "JSON data for the api",
+						"description": "JSON data for the api (URL or video)",
 						"required": true,
 						"schema": {
-							"$ref": "#/definitions/VideoData"
+							"$ref": "#/definitions/InputData"
 						}
 					}
 				],
 				"responses": {
 					"200": {
-						"description": "Video URL"
+						"description": "Video URL of the result without background"
 					},
 					"400": {
 						"description": "Invalid request data"
@@ -33,10 +33,12 @@
 		}
 	},
 	"definitions": {
-		"VideoData": {
+		"InputData": {
 			"type": "object",
-			"video": {
-				"type": "object"
+			"properties": {
+				"input": {
+					"type": "string"
+				}
 			}
 		}
 	}
