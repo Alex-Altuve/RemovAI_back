@@ -5,7 +5,7 @@
 		"version": "1.0.0"
 	},
 	"paths": {
-		"/eliminar-fondo": {
+		"/delete-background/url": {
 			"post": {
 				"description": "Eliminates background on video, the input can be a local video or a URL to a video",
 				"consumes": ["application/json"],
@@ -24,6 +24,30 @@
 				"responses": {
 					"200": {
 						"description": "Video URL of the result without background"
+					},
+					"400": {
+						"description": "Invalid request data"
+					}
+				}
+			}
+		},
+		"/delete-background/file": {
+			"post": {
+				"description": "Eliminates background on a video given an URL",
+				"consumes": ["multipart/form-dat"],
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "video",
+						"in": "formData",
+						"description": "File to delete the background",
+						"required": true,
+						"type": "file"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Result video without background"
 					},
 					"400": {
 						"description": "Invalid request data"
