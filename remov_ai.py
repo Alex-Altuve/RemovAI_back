@@ -1,10 +1,15 @@
+"""
+API for communicating with the replicate model to delete a video background
+from an URL or MP4 file
+"""
+
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from flask_swagger_ui import get_swaggerui_blueprint
 from werkzeug.utils import secure_filename
 
-import Replicate_api as modelo
+import replicate_api as modelo
 
 app = Flask(__name__)
 CORS(app)

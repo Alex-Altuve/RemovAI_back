@@ -1,4 +1,6 @@
-import os
+"""
+    Model from replicate to delete background
+"""
 
 from dotenv import load_dotenv
 import replicate

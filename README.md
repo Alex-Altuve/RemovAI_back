@@ -9,7 +9,7 @@ https://replicate.com/account
 
 ## Pasos para probar la api RemovIA
 
-1.  Ejecutar la api usando el comando `python RemovIA.py` o ejectuando `flask --app RemovIA run` o si estas en modo desarrolador `flask --app RemovIA --debug run`
+1.  Ejecutar la api usando el comando `python remov_ai.py` o ejectuando `flask --app remov_ai run` o si estas en modo desarrolador `flask --app remov_ai --debug run`
 
 2.  Comprobar que la api este corriendo, mostrando este mensaje en la consola de VSC http://127.0.0.1:5000
 
