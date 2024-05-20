@@ -9,18 +9,21 @@ https://replicate.com/account
 
 ## Pasos para probar la api RemovIA
 
-1.  Ejecutar la api usando el comando `python remov_ai.py` o ejectuando `flask --app remov_ai run` o si estas en modo desarrolador `flask --app remov_ai --debug run`
+1.  Crear un ambiente virtual con `PS> python -m venv venv`
+2.  Activar el ambiente virtual con `.\venv\Scripts\activate`
+3.  Instalar las dependencias usando `pip install -r ./requirements.txt`
+4.  Crear el archivo `.env` utilizadno como base el archivo `.env.example` y colocar en el su token de Replicate
+5.  Ejecutar la api usando el comando `python remov_ai.py` o ejectuando `flask --app remov_ai run` o si estas en modo desarrolador `flask --app remov_ai --debug run`
+6.  Comprobar que la api este corriendo, mostrando este mensaje en la consola de VSC http://127.0.0.1:5000
 
-2.  Comprobar que la api este corriendo, mostrando este mensaje en la consola de VSC http://127.0.0.1:5000
+7.  Ya al estar activa la api, puede comprobar su funcionamiento con postman de la siguiente manera:
 
-3.  Ya al estar activa la api, puede comprobar su funcionamiento con postman de la siguiente manera:
+    7.1 Realizar una solicitud POST a la siguiente direccion http://127.0.0.1:5000/eliminar_fondo
 
-    3.1 Realizar una solicitud POST a la siguiente direccion http://127.0.0.1:5000/eliminar_fondo
-
-    3.2 Ir al apartado Body -> raw y agregar el url del video que deseas convertir, ejemplo:
+    7.2 Ir al apartado Body -> raw y agregar el url del video que deseas convertir, ejemplo:
 
         {
           "url": "https://i.pinimg.com/originals/32/79/46/3279462667fb3498a6aa144e7cdea2ae.gif"
         }
 
-    3.3 Dar a enviar, si la solicitud ha sido procesada correctamente, te devolvera el URL del video con el fondo ya eliminado.
+    7.3 Dar a enviar, si la solicitud ha sido procesada correctamente, te devolvera el URL del video con el fondo ya eliminado.
