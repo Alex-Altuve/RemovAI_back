@@ -75,8 +75,9 @@ def remove_background_file():
         print("Request files", request.files)
         # verify if the user submitted a file or a URL
         if "video" in request.files:
-            print(request.files)
+            # get the file
             file = request.files["video"]
+            print("File", file)
             # if the user uploaded a empty file without a name
             if file.filename == "":
                 print("No file selected")
@@ -87,10 +88,15 @@ def remove_background_file():
                 filename = secure_filename(file.filename)
                 # save the file to local
                 file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+                print("Filename ", filename)
                 # open the video
                 video = open(f"./static/uploads/{filename}", "rb")
                 # call the model
                 output = modelo.remove_background(video=video)
+                # close the file
+                video.close()
+                # now delete the file
+                os.remove(f"./static/uploads/{filename}")
                 # return the result
                 return jsonify({"output_url": output})
             else:
