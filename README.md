@@ -27,3 +27,28 @@ https://replicate.com/account
         }
 
     7.3 Dar a enviar, si la solicitud ha sido procesada correctamente, te devolvera el URL del video con el fondo ya eliminado.
+
+## Dependencias usadas 
+    replicate
+    dotenv 
+    flask
+    os
+    flask_cors 
+    flask_swagger_ui 
+    werkzeug.utils 
+    
+De cada módulo se importa 
+
+    dotenv -> load_dotenv
+    flask_cors ->  CORS, cross_origin
+    werkzeug.utils ->  secure_filename
+    flask_swagger_ui -> get_swaggerui_blueprint
+    flask -> Flask, request, jsonify
+
+## Enlace Modelo de IA usado
+https://replicate.com/nateraw/video-background-remover
+
+## Authors
+
+- ### [@Alex Altuve](https://github.com/Alex-Altuve)  [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alex-altuve-delgado-b1a212288/)
+- ### [@Alejandro Novellino](https://github.com/AlejandroNovellino) [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]()
