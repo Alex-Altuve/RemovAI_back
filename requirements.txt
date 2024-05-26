@@ -1,0 +1,8 @@
+moviepy==1.0.3
+opencv-python==4.8.0.74
+rembg==2.0.50
+os
+Flask==3.0.3
+Flask_Cors==4.0.1
+flask_swagger_ui==4.11.1
+Werkzeug==3.0.3
