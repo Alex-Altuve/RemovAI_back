@@ -1,4 +1,10 @@
 # Configure .env #
 ######################
 .env
+venv
+.vscode
 
+__pycache__/
+Video_sinbg
+Video_test
+static/uploads/*
