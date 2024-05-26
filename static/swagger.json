@@ -1,0 +1,43 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Access API",
+		"version": "1.0.0"
+	},
+	"paths": {
+		"/delete-background/file": {
+			"post": {
+				"description": "Eliminates background on a video given an URL",
+				"consumes": ["multipart/form-dat"],
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "video",
+						"in": "formData",
+						"description": "File to delete the background",
+						"required": true,
+						"type": "file"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Result video without background"
+					},
+					"400": {
+						"description": "Invalid request data"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"InputData": {
+			"type": "object",
+			"properties": {
+				"input": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
