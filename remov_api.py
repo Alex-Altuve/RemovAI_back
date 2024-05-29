@@ -20,6 +20,7 @@ API_URL = "/static/swagger.json"
 # flask files constants
 UPLOAD_FOLDER = "./static/uploads/"
 ALLOWED_EXTENSIONS = {"mp4","gif"}
+# Check if the upload folder exists, if not create it
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 

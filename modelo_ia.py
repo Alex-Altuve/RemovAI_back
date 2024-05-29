@@ -21,13 +21,13 @@ def remove_background_from_video(input_filename, bgcolor=(0, 255, 0, 255), outpu
         output_fps (int, optional): Frames per second for the output video. Defaults to 30.
     """
     output_filename=modify_filename(input_filename)
-    video= VideoFileClip(input_filename)
+    video=VideoFileClip(input_filename)
 
     def remove_background(frame):
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
         frame_rgb = remove(frame_rgb, bgcolor=bgcolor)
         return cv2.cvtColor(frame_rgb, cv2.COLOR_RGB2BGR)
-
+    
     # Determine the codec based on the file extension
     file_extension = os.path.splitext(output_filename)[1]
     if file_extension == ".mp4":
@@ -45,4 +45,3 @@ def remove_background_from_video(input_filename, bgcolor=(0, 255, 0, 255), outpu
 # Example usage:
 # input_video_path = "RemovAI_back\Video_test\Homero.gif"
 # remove_background_from_video(input_video_path)
-
