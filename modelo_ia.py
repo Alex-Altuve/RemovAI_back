@@ -28,8 +28,19 @@ def remove_background_from_video(input_filename, bgcolor=(0, 255, 0, 255), outpu
         frame_rgb = remove(frame_rgb, bgcolor=bgcolor)
         return cv2.cvtColor(frame_rgb, cv2.COLOR_RGB2BGR)
 
+    # Determine the codec based on the file extension
+    file_extension = os.path.splitext(output_filename)[1]
+    if file_extension == ".mp4":
+        codec = "libx264"
+    elif file_extension == ".gif":
+        codec = "gif"
+    else:
+        raise ValueError(f"Unsupported file extension: {file_extension}")
+
     final = video.fl_image(remove_background)
-    final.write_videofile(output_filename, fps=output_fps, codec="gif")
+    final.write_videofile(output_filename, fps=output_fps, codec=codec)
+
+    return output_filename
 
 # Example usage:
 # input_video_path = "RemovAI_back\Video_test\Homero.gif"

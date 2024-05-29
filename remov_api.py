@@ -20,6 +20,8 @@ API_URL = "/static/swagger.json"
 # flask files constants
 UPLOAD_FOLDER = "./static/uploads/"
 ALLOWED_EXTENSIONS = {"mp4","gif"}
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
 
 app = Flask(__name__)
 # flask app configuration
@@ -60,26 +62,22 @@ def remove_background_file():
                 return jsonify({"error": "No file selected"}), 400
             # if the file is not empty and is allowed
             if file and allowed_file(file.filename):
-                # create a secure file object
                 filename = secure_filename(file.filename)
-                # save the file to local
                 file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
                 print("Filename ", filename)
-                # open the video
-                video = open(f"./static/uploads/{filename}", "rb")
-                # call the model
-                output = modelo.remove_background_from_video(video=video)
-                # close the file
-                video.close()
-                # now delete the file
+                # video = open(f"./static/uploads/{filename}", "rb")
+                # output = modelo.remove_background_from_video(video=video)
+                # video.close()
+
+                # no es necesario abrir el archivo, se puede pasar el nombre del archivo.
+                output = modelo.remove_background_from_video(input_filename=f"./static/uploads/{filename}")
                 os.remove(f"./static/uploads/{filename}")
-                # return the result
-                return jsonify({"output_url": output})
+                abs_output = os.path.abspath(output)
+                return jsonify({"output_url": abs_output})
             else:
                 return jsonify({"error": "Invalid video extension"}), 400
     except Exception as e:
         return jsonify({"error": str(e)})
-
 
 if __name__ == "__main__":
     app.run(debug=True)
