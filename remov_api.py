@@ -49,7 +49,6 @@ def remove_background_file():
     function to remove the background of a video from a file
     """
     try:
-        print("Hi form delete background from file")
         print("Request data", request.data)
         print("Request files", request.files)
         # verify if the user submitted a file or a URL
@@ -72,9 +71,14 @@ def remove_background_file():
 
                 # no es necesario abrir el archivo, se puede pasar el nombre del archivo.
                 output = modelo.remove_background_from_video(input_filename=f"./static/uploads/{filename}")
-                os.remove(f"./static/uploads/{filename}")
-                abs_output = os.path.abspath(output)
-                return jsonify({"output_url": abs_output})
+                # os.remove(f"./static/uploads/{filename}")
+                # abs_output = os.path.abspath(output)
+
+                # if not app.debug:
+                output = output.replace('./', '')
+                output = f"http://{request.host}/{output}"
+
+                return jsonify({"output_url": output})
             else:
                 return jsonify({"error": "Invalid video extension"}), 400
     except Exception as e:
