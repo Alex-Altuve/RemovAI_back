@@ -1,7 +1,9 @@
-moviepy==1.0.3
-opencv-python==4.8.0.74
-rembg==2.0.50
 Flask==3.0.3
 Flask_Cors==4.0.1
 flask_swagger_ui==4.11.1
+moviepy==1.0.3
+onnxruntime_gpu==1.18.0
+opencv_python_headless==4.9.0.80
+rembg==2.0.57
+torch==2.3.0+cu121
 Werkzeug==3.0.3
