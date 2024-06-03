@@ -19,7 +19,7 @@ SWAGGER_URL = "/swagger"
 API_URL = "/static/swagger.json"
 # flask files constants
 UPLOAD_FOLDER = "./static/uploads/"
-ALLOWED_EXTENSIONS = {"mp4","gif"}
+ALLOWED_EXTENSIONS = {"mp4", "gif"}
 # Check if the upload folder exists, if not create it
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
@@ -70,12 +70,14 @@ def remove_background_file():
                 # video.close()
 
                 # no es necesario abrir el archivo, se puede pasar el nombre del archivo.
-                output = modelo.remove_background_from_video(input_filename=f"./static/uploads/{filename}")
+                output = modelo.remove_background_from_video(
+                    input_filename=f"./static/uploads/{filename}"
+                )
                 # os.remove(f"./static/uploads/{filename}")
                 # abs_output = os.path.abspath(output)
 
                 # if not app.debug:
-                output = output.replace('./', '')
+                output = output.replace("./", "")
                 output = f"http://{request.host}/{output}"
 
                 return jsonify({"output_url": output})
@@ -83,6 +85,7 @@ def remove_background_file():
                 return jsonify({"error": "Invalid video extension"}), 400
     except Exception as e:
         return jsonify({"error": str(e)})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
