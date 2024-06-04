@@ -65,25 +65,20 @@ def remove_background_file():
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
                 print("Filename ", filename)
-                # video = open(f"./static/uploads/{filename}", "rb")
-                # output = modelo.remove_background_from_video(video=video)
-                # video.close()
-
-                # no es necesario abrir el archivo, se puede pasar el nombre del archivo.
+                # delete the background of the given video
                 output = modelo.remove_background_from_video(
                     input_filename=f"./static/uploads/{filename}"
                 )
-                # os.remove(f"./static/uploads/{filename}")
-                # abs_output = os.path.abspath(output)
-
-                # if not app.debug:
+                # prepare the output filename
                 output = output.replace("./", "")
+                # serve the video to the client
                 output = f"http://{request.host}/{output}"
 
                 return jsonify({"output_url": output})
             else:
                 return jsonify({"error": "Invalid video extension"}), 400
-    except Exception as e:
+    except ValueError as e:
+        # manage the error if the file extension is not supported
         return jsonify({"error": str(e)})
 
 
