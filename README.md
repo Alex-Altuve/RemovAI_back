@@ -29,5 +29,5 @@ https://colab.research.google.com/drive/10OHII8MtGl5ATMGWrmxRNzsnDkuUMrLT#scroll
 ## Authors
 
 - ### [@Alex Altuve](https://github.com/Alex-Altuve)  [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alex-altuve-delgado-b1a212288/)
-- ### [@Alejandro Novellino](https://github.com/AlejandroNovellino) [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]()
-- ### [@Estefany Torres](https://github.com/emmezita)
+- ### [@Alejandro Novellino](https://github.com/AlejandroNovellino) [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alejandro-novellino-70954817b/)
+- ### [@Estefany Torres](https://github.com/emmezita) [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emmezita/)
